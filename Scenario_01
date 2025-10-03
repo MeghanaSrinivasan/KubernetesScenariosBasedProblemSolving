@@ -1,1 +1,28 @@
 
+Scenario 1:
+
+SSH into node01
+Check the kubelet service
+Restart it to bring the node back online
+------------------------------------------
+Solution:
+kubectl get all ---> list of cluster
+kubectl get nodes --> list of nodes
+ssh <node name> --> ssh node01
+systemctl status kubelet ---> (to check the status of the kubelet whether active or deactivated)
+(or)
+sudo systemctl status kubelet -n 20
+
+
+sudo systemctl stop kubelet  --> stops the kubelet
+sudo systemctl start kubelet  --> starts the kubelet service
+sudo systemctl restart kubelet ---> restarts the kubelet service
+sudo systemctl enable kubelet
+
+
+Note: systemctl is a Linux command used to control and manage systemd services.
+
+Think of it like this:
+On Linux, programs that run in the background (like kubelet, nginx, sshd, etc.) are called services (daemons).
+systemd is the system manager that starts, stops, and monitors those services.
+systemctl is the tool you use to talk to systemd.
